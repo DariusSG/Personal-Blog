@@ -1,0 +1,323 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-width: 320px;
+    font-size: 17px;
+    line-height: 1.4705882353;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background-color: #fff;
+    color: #1d1d1f;
+    font-style: normal;
+    overflow-y: scroll;
+}
+
+#globalnav *,
+#globalnav *:before,
+#globalnav *:after {
+    float: inherit;
+    font-size: 1em;
+    font-family: "SF Pro Text", "Myriad Set Pro", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-align: inherit;
+}
+
+.visuallyhidden {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+}
+
+/* Desktop Nav */
+
+.nav-container {
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    height: 44px;
+    z-index: 300;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+}
+
+.nav-container #globalnav {
+    width: 768px;
+    margin: 0 auto;
+    padding: 0 8px;
+    height: 100%;
+}
+
+#globalnav .gn-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+#globalnav .gn-list .gn-item-menu .gn-link {
+    font-size: 15px;
+    line-height: 2.933333;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    color: #f5f5f0;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 400ms;
+}
+
+#globalnav .gn-list .gn-item-menu .gn-link:hover {
+    opacity: 1;
+}
+
+#globalnav .gn-list .gn-item-menu .gn-link-text {
+    font-size: 16px;
+    color: lightgrey;
+}
+
+.gn-link-logo {
+    display: block;
+    height: 44px;
+    width: 15px;
+    background: url('/static/images/logo.svg') no-repeat center;
+}
+
+/* Desktop Nav Animation */
+
+.gn-list .gn-item-menu {
+    transition: all 400ms ease;
+}
+
+.gn-list.hide .gn-item-menu {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+/* Overlay Animation */
+
+.overlay {
+    transition: all 400ms ease;
+}
+
+/* Navigation Menu Items Transition Delay */
+
+.gn-list li:nth-of-type(1),
+.gn-list.hide li:nth-of-type(10) {
+    transition-delay: 0ms;
+}
+
+.gn-list li:nth-of-type(2),
+.gn-list.hide li:nth-of-type(9) {
+    transition-delay: 30ms;
+}
+
+.gn-list li:nth-of-type(3),
+.gn-list.hide li:nth-of-type(8) {
+    transition-delay: 60ms;
+}
+
+.gn-list li:nth-of-type(4),
+.gn-list.hide li:nth-of-type(7) {
+    transition-delay: 90ms;
+}
+
+.gn-list li:nth-of-type(5),
+.gn-list.hide li:nth-of-type(6) {
+    transition-delay: 120ms;
+}
+
+.gn-list li:nth-of-type(6),
+.gn-list.hide li:nth-of-type(5) {
+    transition-delay: 150ms;
+}
+
+.gn-list li:nth-of-type(7),
+.gn-list.hide li:nth-of-type(4) {
+    transition-delay: 180ms;
+}
+
+.gn-list li:nth-of-type(8),
+.gn-list.hide li:nth-of-type(3) {
+    transition-delay: 210ms;
+}
+
+.gn-list li:nth-of-type(9),
+.gn-list.hide li:nth-of-type(2) {
+    transition-delay: 240ms;
+}
+
+.gn-list li:nth-of-type(10),
+.gn-list.hide li:nth-of-type(1) {
+    transition-delay: 270ms;
+}
+
+
+/* Hidden Items */
+
+.gn-header {
+    display: none;
+}
+
+
+/* Misc Items */
+#gn-placeholder {
+    height: 44px;
+}
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+
+    .nav-container #globalnav .gn-list {
+        padding: 0px;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0vh;
+        background: #000;
+        justify-content:start;
+        overflow: hidden;
+        z-index: -1;
+        transition: all 1000ms ease;
+    }
+
+    .nav-container.active #globalnav .gn-list {
+        height: 100vh;
+    }
+
+    .nav-container #globalnav .gn-list .gn-item-menu {
+        width: 100%;
+        padding: 0 32px;
+    }
+
+    .nav-container #globalnav .gn-list .gn-item-menu:first-child {
+        padding: 0px;
+    }
+
+    .nav-container #globalnav .gn-list .gn-link-logo {
+        background: none;
+    }
+
+    .nav-container #globalnav .gn-list .gn-item-menu .gn-link {
+        padding: 8px 0;
+        display: inline-block;
+        border-bottom: 1px solid #616161;
+        width: 100%;
+        font-size: 17px;
+        line-height: 1.23536;
+        font-weight: 400;
+        letter-spacing: -.022em;
+        transform: translateY(-80px);
+        opacity: 0;
+        transition: all 700ms ease;
+    }
+
+    .nav-container.active #globalnav .gn-list .gn-item-menu .gn-link {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    /* Mobile Nav */
+
+    #globalnav .gn-header {
+        display: flex;
+        width: 100vw;
+        justify-content: space-between;
+        list-style: none;
+    }
+
+    #globalnav .menu-icon-container {
+        width: 20px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #globalnav .menu-icon {
+        position: relative;
+        width: 100%;
+    }
+
+    #globalnav .menu-icon .line-1,
+    #globalnav .menu-icon .line-2 {
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background: white;
+        transition-property: transform, top;
+        transition-delay: 0ms, 160ms;
+        transition-duration: 200ms;
+    }
+
+    #globalnav .menu-icon .line-1 {
+        top: -4px;
+    }
+
+    #globalnav .menu-icon .line-2 {
+        top: 5px;
+    }
+
+    .nav-container.active #globalnav .menu-icon-container .menu-icon .line-1 {
+        top: 0;
+        transform: rotateZ(45deg);
+        transition-property: top, transform;
+        transition-delay: 0ms, 160ms;
+        transition-duration: 200ms;
+    }
+
+    .nav-container.active #globalnav .menu-icon-container .menu-icon .line-2 {
+        top: 0;
+        transform: rotateZ(-45deg);
+        transition-property: top, transform;
+        transition-delay: 0ms, 160ms;
+        transition-duration: 200ms;
+    }
+
+    /* Nav Move Up */
+
+    .nav-container #globalnav.move-up {
+        margin-top: -40px;
+    }
+
+    /* Desktop Nav Move Down */
+
+    #globalnav .gn-list.move-down .gn-item-menu {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Nav Animation */
+
+    .nav-container #globalnav {
+        transition: all 400ms ease;
+    }
+}
+
+
+input,
+div,
+span,
+a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}

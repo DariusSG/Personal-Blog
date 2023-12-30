@@ -1,0 +1,272 @@
+/*News & Releases*/
+
+#main article.article.thumbnail {
+    width: 100% !important;
+}
+
+@media all and (max-width: 735px) {
+    #main .grid {
+        padding: 0 0.49em !important;
+    }
+}
+
+#main .column.xlarge-gutter,
+#main .column.gutter {
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+}
+
+#main .news .article-date,
+#main .releases .article-date {
+    margin-top: 0.5em;
+    font-size: 0.875em
+}
+
+#main .news .article-date:not(:last-child),
+#main .releases .article-date:not(:last-child) {
+    margin-bottom: 0.4em;
+}
+
+#main .news a.article-title,
+#main .releases a.article-title {
+    color: #333;
+}
+
+#main .rss-link {
+    font-size: 12px;
+}
+
+#main .news a.article-title:hover,
+#main .releases a.article-title:hover {
+    color: #0088CC;
+}
+
+@media all and (max-width: 735px) {
+
+    #main .news .nowrap,
+    #main .releases .nowrap {
+        white-space: normal;
+    }
+
+    #main .news .article-image,
+    #main .releases .article-image {
+        margin-bottom: 0em;
+        display: block;
+    }
+
+}
+
+@media only screen and (max-width: 1068px) {
+
+    #main .news .article-image,
+    #main .releases .article-image {
+        width: 128px;
+        height: auto !important;
+    }
+}
+
+#main .read-more-brief {
+    margin-top: 0.8em;
+}
+
+#main .list li {
+    margin-top: 0.8em;
+}
+
+#main ul.list, ol.list {
+    padding-left: 1em;
+}
+
+#main ul, ol {
+    padding-bottom: 0.8em !important;
+    padding-left: 1em;
+    margin-top: 0.8em;
+}
+
+#main p.read-more-link {
+    margin-top: 0.8em;
+}
+
+/*Shared styles*/
+
+#main .article-image-container.divider-top {
+    border-top: none;
+}
+
+#main .article-content-container.divider-top {
+    border-top: 1px solid #d6d6d6;
+}
+
+#main .article h2 {
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "social-media-font";
+    src: url("https://developer.apple.com/news/styles/fonts/social-media-font.eot?1");
+    src: url("https://developer.apple.com/news/styles/fonts/social-media-font.eot?1") format("embedded-opentype"), url("https://developer.apple.com/news/styles/fonts/social-media-font.ttf?1") format("truetype"), url("https://developer.apple.com/news/styles/fonts/social-media-font.woff?1") format("woff")
+}
+
+.icon:hover:after {
+    color: rgb(41, 151, 255)
+}
+
+.icon.icon-link::before,
+.icon.icon-link::after {
+    font-family: "social-media-font" !important;
+    content: ""
+}
+
+.icon.icon-line::before,
+.icon.icon-line::after {
+    font-family: "social-media-font" !important;
+    content: ""
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@media all and (max-width: 735px) {
+
+    .article-content-container {
+        padding-bottom: 2.8em !important;
+    }
+
+    .article-image-container.divider-top {
+        border-top: 1px solid #d6d6d6;
+    }
+
+    .article-content-container.divider-top {
+        border-top: none;
+    }
+
+    .article-image-container.text-right {
+        text-align: left;
+    }
+}
+
+#main a h2:hover {
+    text-decoration: underline;
+}
+
+/*End Share styles*/
+
+/* popup */
+
+#main .modal {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99999;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Inner */
+#main .modal-inner {
+    max-width: 700px;
+    width: 90%;
+    padding: 80px 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background: #fff;
+}
+
+/* Close Button */
+#main .modal-close {
+    position: absolute;
+    z-index: 9999;
+    overflow: hidden;
+    top: 28px;
+    left: 28px;
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    line-height: 1;
+    width: .75em;
+    height: .75em;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    color: #888
+}
+
+#main .modal-close::before,
+#main .modal-close::after {
+    font-family: "SF Pro Icons";
+    color: inherit;
+    display: inline-block;
+    font-style: normal;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: 1;
+    text-decoration: underline;
+    position: relative;
+    z-index: 1;
+    alt: ''
+}
+
+#main .modal-close::before,
+#main .modal-close::after {
+    text-decoration: none
+}
+
+#main .modal-close::before {
+    display: none
+}
+
+#main .modal-close::before,
+#main .modal-close::after {
+    content: "ïž"
+}
+
+#main .modal-close::after {
+    position: absolute;
+    top: -.025em;
+    left: -.1em;
+    padding: 0
+}
+
+@media only screen and (max-width: 1068px) {
+    #main .modal-close {
+        top: 22px;
+        left: 22px;
+        font-size: 32px;
+        width: .75em;
+        height: .75em
+    }
+
+    #main .modal-close::after {
+        left: -.09375em
+    }
+}
+
+/* end popup */
+
+#main .article-text img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 1.5em auto 1.5em 0;
+}
+
+#main .article-image-wrapper {
+    margin-bottom: 1em;
+}
+
+#main .article-text ul li {
+    margin-bottom: 6px;
+}

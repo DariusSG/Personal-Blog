@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<style>
+  @media only screen and (min-width: 1442px) {
+    .main {
+      margin-left: auto;
+      margin-right: auto;
+      width: 980px;
+    }
+  }
+  .main {
+    margin: 92px auto 140px;
+    width: 980px;
+    text-align: center;
+  }
+
+  .main .section-headline {
+    width: 502px;
+    margin-right: auto;
+    margin-bottom: 54px;
+    margin-left: auto;
+  }
+
+  .typography-headline {
+    font-size: 48px;
+    line-height: 1.08365;
+    font-weight: 600;
+    letter-spacing: -.003em;
+    font-family: "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<main id="main" class="main" role="main">
+  <h1 class="section-headline typography-headline">The page you’re looking for can’t be&nbsp;found.</h1>
+</main>
+{% endblock %}

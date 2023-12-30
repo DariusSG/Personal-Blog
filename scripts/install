@@ -1,0 +1,13 @@
+#!/bin/sh -ex
+
+if ! [ -f .env ] ; then
+    echo "DEBUG=true" > .env
+fi
+
+if [ "$1" = "--update" ]; then
+    rm -f requirements.txt
+    ${BIN_PATH}pip install -U -r requirements.base
+    ${BIN_PATH}pip freeze > requirements.txt
+else
+    ${BIN_PATH}pip install -U -r requirements.txt
+fi

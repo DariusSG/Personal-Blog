@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .main {
+            margin:0 auto;
+            display: flex;
+            flex-direction: column;
+            overflow: initial;
+            width: 100%;
+        }
+
+
+        article:has(.markdown, .markdown_toc) {
+            margin:0 auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            overflow: initial;
+        }
+
+        .markdown_toc {
+            position: sticky;
+            align-self: start;
+            top: 6rem;
+            margin-right: 15px;
+            margin-left: 90px;
+        }
+
+        .markdown_toc ul,
+        .markdown_toc ol {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .markdown_toc li {
+            margin-left: 1.5rem;
+            min-width: 340px;
+        }
+
+        .markdown_toc a {
+            text-decoration: none;
+            display: block;
+            padding: .125rem 0 .125rem 25px;
+            color: #ccc;
+            transition: all 50ms ease-in-out; /* 💡 This small transition makes setting of the active state smooth */
+        }
+
+        .markdown_toc li.active > a {
+            color: #333;
+            border-right: 3px solid lightslategrey;
+            border-bottom: 3px solid lightslategrey;
+            background-color: rgba(51, 51, 51, 0.14);
+            border-radius: 6px;
+        }
+
+        .markdown_toc a:hover,
+        .markdown_toc a:focus {
+            color: #666;
+        }
+
+        .markdown {
+            width: 800px;
+            margin: auto;
+        }
+
+        .markdown blockquote {
+            box-shadow: inset 3px 0 0 0 rgba(41, 41, 41, 1);
+            margin-left: -20px;
+            padding-left: 23px;
+        }
+
+        .markdown blockquote p {
+            font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+            font-style: italic;
+            font-size: 21px;
+            font-weight: 400;
+            color: rgba(41, 41, 41, 1);
+            letter-spacing: -0.003em;
+            line-height: 32px;
+            margin-top: 2em;
+            margin-bottom: -0.46em;
+        }
+
+        .markdown p {
+            margin-top: 0.8em;
+        }
+
+        header[class="publisher"] {
+            margin-left: 222px;
+            margin-top: 56px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: 50px;
+        }
+
+        header[class="publisher"]>div {
+            display: flex;
+        }
+
+        header[class="publisher"]>div>div[class="publisher_avater"]>a {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        header[class="publisher"]>div>div[class="publisher_avater"]>a>div>img {
+            width: 48px;
+            height: 48px;
+            background-color: rgba(242, 242, 242, 1);
+            box-sizing: border-box;
+            border-radius: 50%;
+        }
+
+        header[class="publisher"] .publisher_info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header[class="publisher"] .publisher_info>.publisher_name {
+            line-height: 24px;
+            font-size: 16px;
+            color: rgba(41, 41, 41, 1);
+            font-weight: 400;
+            font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        header[class="publisher"] .publisher_info>.article_info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header[class="publisher"] .publisher_info>.article_info>div {
+            color: rgba(117, 117, 117, 1);
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+            font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        header[class="publisher"] .publisher_info>.article_info>div[class="seperator"] {
+            padding: 0 8px;
+        }
+
+    </style>
+    <script src="{{ static('js/markdown-toc.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+    <main id="main" class="main" role="main">
+        <header class="publisher">
+            <div>
+                <div class="publisher_avater" style="margin-right: 16px">
+                    <a>
+                        <div><img src="https://miro.medium.com/v2/resize:fill:96:96/1*5EtPJj0AyHd5IQpiCvIFjw.png" alt="Poster Avater"></div>
+                    </a>
+                </div>
+                <div class="publisher_info">
+                    <div class="publisher_name"><p>{{ author_name }}</p></div>
+                    <div class="article_info">
+                        <div class="article_date"><span>{{ creation_date }}</span></div>
+                        <div class="seperator">.</div>
+                        <div class="article_lenTime"><span>{{ read_time }} min read</span></div></div>
+                </div>
+            </div>
+            <div>
+                <div><div><button><span><svg>Action 1</svg></span></button></div></div>
+                <div><div><button><span><svg>Action 2</svg></span></button></div></div>
+                <div><div><button><span><svg>Action 3</svg></span></button></div></div>
+            </div>
+        </header>
+        <article>
+            <div class="markdown">
+                {{ post | safe }}
+            </div>
+            {{ post_toc | safe }}
+        </article>
+
+    </main>
+{% endblock %}

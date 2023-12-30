@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<style>
+  .main {
+    margin:0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+   #player {
+     width: 80%;
+   }
+</style>
+<link rel="stylesheet" href="{{ static('css/vid_player.css') }}">
+<script src="{{ static('js/vimejs/app.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<main id="main" class="main" role="main">
+    <vm-player id="player" icons="material">
+        <vm-video cross-origin="true" poster="https://media.vimejs.com/poster.png">
+            <source data-src="https://media.vimejs.com/720p.mp4" type="video/mp4" />
+            <track
+              default
+              kind="subtitles"
+              src="https://media.vimejs.com/subs/english.vtt"
+              srclang="en"
+              label="English"
+            />
+        </vm-video>
+      <vm-default-ui></vm-default-ui>
+    </vm-player>
+</main>
+{% endblock %}
